@@ -39,6 +39,12 @@ test("form shows success message on submit with form details", () => {
 
     userEvent.click(button)
 
-    const successMsg = screen.getByText(/you have ordered some plants!/i)
-    expect(successMsg).toBeInTheDocument();
+    const successMsgName = screen.getByText(/wei wu/i)
+    const successMsgAddress = screen.getByText(/TotallyNotFakeAddress/i)
+    const successMsgOtherAddress = screen.getByText(/TotallyNotFakeCity, TotallyNotFakeState TotallyNotFakeZip/i)
+    expect(successMsgName).toBeInTheDocument();
+    expect(successMsgAddress).toBeInTheDocument();
+    expect(successMsgOtherAddress).toBeInTheDocument();
+    
+
 });
